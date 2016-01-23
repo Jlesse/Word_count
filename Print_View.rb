@@ -1,5 +1,6 @@
 
 class Print_View
+
   # Prints the top ten words to the console
   # PARAMS:
   # - top_words: a descending by value array of 10 sub-arrays, where each
@@ -7,7 +8,7 @@ class Print_View
   # RETURNS:
   # - a descending by value array of 10 sub-arrays, where each
   # subarray[0] is the word key and subarray[1] is its occurance value.
-  def printList(top_words)
+  def self.printList(top_words)
     puts "THE TOP TEN WORDS"
     puts "================="
     i = 1

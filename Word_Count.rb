@@ -72,12 +72,10 @@ class Word_Count
 
 
 
-  # Runs all the utility methods.
+  # runs utility methods to parse in text and count the words
   def self.run(text)
-
-    top_words = top_ten sort_hash count_words parse_text text
-    printList top_words
+    count_words parse_text text
   end
 
-  private_class_method :printList, :top_ten, :sort_hash, :count_words, :parse_text
+  private_class_method :count_words, :parse_text
 end
