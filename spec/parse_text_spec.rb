@@ -1,5 +1,6 @@
 
-require_relative '../runner'
+require_relative '../File_Reader'
+require_relative '../text_parse'
 
 describe 'Word_Count' do
   test_string1 = "\“This much is already known: for every sensible line of straightforward statement, there are leagues of senseless cacophonies, verbal jumbles and incoherences. (I know of an uncouth region whose librarians repudiate the vain and superstitious custom of finding a meaning in books and equate it with that of finding a meaning in dreams or in the chaotic lines of one\'s palm . . . They admit that the inventors of this writing imitated the twenty-five natural symbols, but maintain that this application is accidental and that the books signify nothing in themselves. This dictum, we shall see, is not entirely fallacious.)\"
@@ -58,7 +59,7 @@ describe 'Word_Count' do
 end
 
 describe "File_Reader.read_in_file" do
-  it "outputs a string " do
+  it "outputs a string when good filePath is provided " do
     expect(File_Reader.read_in_file("galaxy.txt")).to be_instance_of(String)
   end
 end

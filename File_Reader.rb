@@ -11,12 +11,16 @@ class File_Reader
   def self.read_in_file(file_path)
 
     file_string = ""
-    File.open(file_path, "r") do |f|
-      f.each_line do |line|
-        file_string+=line
+    if (File.file?(file_path))
+      File.open(file_path, "r") do |f|
+        f.each_line do |line|
+          file_string+=line
+        end
       end
+      file_string
+    else
+
     end
-    file_string
   end
 
 
