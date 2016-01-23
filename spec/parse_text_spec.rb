@@ -59,8 +59,6 @@ end
 
 describe "File_Reader.read_in_file" do
   it "outputs a string " do
-    ARGV[0] = "galaxy.txt"
-     p File_Reader.read_in_file
-    expect(File_Reader.read_in_file).to be_instance_of(String)
+    expect(File_Reader.read_in_file("galaxy.txt")).to be_instance_of(String)
   end
 end
