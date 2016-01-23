@@ -70,27 +70,12 @@ class Word_Count
     sorted_words_array[0..9]
   end
 
-  # Prints the top ten words to the console
-  # PARAMS:
-  # - top_words: a descending by value array of 10 sub-arrays, where each
-  # subarray[0] is the word key and subarray[1] is its occurance value.
-  # RETURNS:
-  # - a descending by value array of 10 sub-arrays, where each
-  # subarray[0] is the word key and subarray[1] is its occurance value.
-  def self.printList(top_words)
-    puts "THE TOP TEN WORDS"
-    puts "================="
-    i = 1
-    top_words.each do |word_sub_array|
-      puts "#{i}. #{word_sub_array[0]}, count: #{word_sub_array[1]}"
-      i+=1
-    end
-  end
+
 
   # Runs all the utility methods.
   def self.run(text)
-    count_words parse_text text
-    top_words = top_ten sort_hash @@word_hash
+
+    top_words = top_ten sort_hash count_words parse_text text
     printList top_words
   end
 

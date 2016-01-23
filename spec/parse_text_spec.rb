@@ -3,6 +3,9 @@ require_relative '../File_Reader'
 require_relative '../Word_Count'
 
 describe 'Word_Count' do
+  after(:each) do
+    Word_Count.word_hash = {}
+  end
   test_string1 = "\“This much is already known: for every sensible line of straightforward statement, there are leagues of senseless cacophonies, verbal jumbles and incoherences. (I know of an uncouth region whose librarians repudiate the vain and superstitious custom of finding a meaning in books and equate it with that of finding a meaning in dreams or in the chaotic lines of one\'s palm . . . They admit that the inventors of this writing imitated the twenty-five natural symbols, but maintain that this application is accidental and that the books signify nothing in themselves. This dictum, we shall see, is not entirely fallacious.)\"
 ― Jorge Luis Borges, The Library Of Babel"
 
@@ -52,8 +55,6 @@ describe 'Word_Count' do
   end
 
   describe "Word_Count.run" do
-    Word_Count.word_hash = {}
-    p Word_Count.word_hash
     it "runs all methods and outputs to the console" do
       expect{Word_Count.run(test_string1)}.to output(final_top_ten_output).to_stdout
     end
@@ -61,7 +62,6 @@ describe 'Word_Count' do
 end
 
 describe "File_Reader.read_in_file" do
-  Word_Count.word_hash = {}
   it "outputs a string when good filePath is provided " do
     expect(File_Reader.read_in_file("galaxy.txt")).to be_instance_of(String)
   end
