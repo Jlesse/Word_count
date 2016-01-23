@@ -8,8 +8,9 @@ require_relative 'Print_View'
 # the @@words_hash is sorted and the top ten values are extracted and printed to
 # the console
 class Main
-
+  puts "Calculating"
   ARGV.each do |file_path|
+    puts"..."
     file_string = File_Reader.read_in_file(file_path)
     Word_Count.run(file_string)
   end

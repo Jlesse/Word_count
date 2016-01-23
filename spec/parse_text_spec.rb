@@ -64,7 +64,7 @@ end
 
 describe "File_Reader.read_in_file" do
   it "outputs a string when good filePath is provided " do
-    expect(File_Reader.read_in_file("galaxy1.txt")).to be_instance_of(String)
+    expect(File_Reader.read_in_file("./test_books/galaxy1.txt")).to be_instance_of(String)
   end
 
   it "raises an error when a bad file path is provided" do
