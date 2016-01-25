@@ -20,7 +20,7 @@ class Main
   word_counter = Word_Counter.new
 
 
-  #An object that takes a 2d array and prints it to the console
+  #An object that to viewing the word count
   viewer = Print_View.new
 
 
@@ -37,7 +37,7 @@ class Main
     next if file_path == '.' || file_path == '..' || !(/.+\.txt/.match(file_path))
 
     # let the user know the program didin't crash if the file is long...
-    puts "..."
+    puts "processing #{file_path}..."
 
     # read the file in from the file path and parse into a single string
     file_string = file_reader.read_in_file(directory + file_path)
