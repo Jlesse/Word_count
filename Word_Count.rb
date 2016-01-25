@@ -33,7 +33,7 @@ class Word_Counter
   # - a descending by value array of sub-arrays, where each subarray[0] is the word
   # key and subarray[1] is its occurrence value.
   def sort_hash
-    @hash.sort{|word1, word2| word2[1] <=> word1[1]}
+    @word_hash.sort{|word1, word2| word2[1] <=> word1[1]}
   end
 
   # Slices the first ten elements from sorted_words_array into a new array and returns it.

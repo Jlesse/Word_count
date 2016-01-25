@@ -16,7 +16,7 @@ class Main
   parser = Parser.new
 
   #An object to count the occurance of words
-  word_counter = Word_Count.new
+  word_counter = Word_Counter.new
 
 
   #An object that takes a 2d array and prints it to the console
