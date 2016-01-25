@@ -1,6 +1,7 @@
+#should I use an array and use an insertion sort?
 
-# A class containing a run method and utility methods to assist in reading in a text
-# string and counting the number of occurrences of each word.
+require_relative "./Parser"
+# A class containing a has counting the word count and methods for counting the number of occurrences of each word.
 class Word_Counter
 
   def initialize
@@ -32,7 +33,7 @@ class Word_Counter
   # - a descending by value array of sub-arrays, where each subarray[0] is the word
   # key and subarray[1] is its occurrence value.
   def sort_hash
-    hash.sort{|word1, word2| word2[1] <=> word1[1]}
+    @hash.sort{|word1, word2| word2[1] <=> word1[1]}
   end
 
   # Slices the first ten elements from sorted_words_array into a new array and returns it.

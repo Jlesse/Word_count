@@ -8,7 +8,7 @@ class Print_View
   # RETURNS:
   # - a descending by value array of 10 sub-arrays, where each
   # subarray[0] is the word key and subarray[1] is its occurance value.
-  def self.printList(top_words)
+  def print_list(top_words)
     puts "THE TOP TEN WORDS"
     puts "================="
     i = 1

@@ -7,7 +7,7 @@ class File_Reader
   # - no params, the file_path is supplied with ARGV from the command line.
   #RETURNS
   # a string of all the chars read in from the file
-  def self.read_in_file(file_path)
+  def read_in_file(file_path)
 
     file_string = ""
     if (File.file?(file_path))

@@ -8,14 +8,45 @@ require_relative 'Print_View'
 # the @@words_hash is sorted and the top ten values are extracted and printed to
 # the console
 class Main
+
+  #An obejct to read in a file path and parse it into a single string
+  file_reader = File_Reader.new
+
+  #An object to parse strings into an array of words
+  parser = Parser.new
+
+  #An object to count the occurance of words
+  word_counter = Word_Count.new
+
+
+  #An object that takes a 2d array and prints it to the console
+  viewer = Print_View.new
+
+
   puts "Calculating"
+
+  # read in each file path from ARGV
   ARGV.each do |file_path|
-    puts"..."
-    file_string = File_Reader.read_in_file(file_path)
-    Word_Count.run(file_string)
+
+    # let the user know the program didin't crash if the file is long...
+    puts "..."
+
+    # read the file in from the file path and parse into a single string
+    file_string = file_reader.read_in_file(file_path)
+
+    # parse the string into an array of words
+    word_array = parser.parse_text(file_string)
+
+    # count the word occurances
+    word_counter.count_words(word_array)
+
+
   end
 
-  sorted_array = Word_Count.sort_hash(Word_Count.word_hash)
-  top_words = Word_Count.top_ten(sorted_array)
-  Print_View.printList(top_words)
+  #sort the words in the hash by occurance value
+  word_counter.sort_hash
+
+  #1st ten words from the hash
+  top_words = word_counter.top_ten
+  viewer.print_list(top_words)
 end
