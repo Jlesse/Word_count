@@ -1,4 +1,3 @@
-#should I use an array and use an insertion sort?
 
 require_relative "./Parser"
 # A class containing a has counting the word count and methods for counting the number of occurrences of each word.
