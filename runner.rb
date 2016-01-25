@@ -3,11 +3,11 @@ require_relative 'Word_Count'
 require_relative 'Print_View'
 require_relative 'Parser'
 
-# A class that runs the fileReader, WordCount, and printView. It attempts to open
-# each filePath and read it into a single string (file_string). it then passes it
-# of to Word_Count.run to be analyzed. Once an analysis of all the files has run,
-# the @@words_hash is sorted and the top ten values are extracted and printed to
-# the console
+# A class that runs the parser, file_reader, Word_Count, and print_View.
+# It attempts to open each file in the provided directory from the command-line
+# parse each file, and count the number of occurances. It then sorts the hash
+# and gets the top ten entries in the hash and passes it of to the view to be
+# printed to the console.
 class Main
 
   #An obejct to read in a file path and parse it into a single string
@@ -18,7 +18,6 @@ class Main
 
   #An object to count the occurance of words
   word_counter = Word_Counter.new
-
 
   #An object that to viewing the word count
   viewer = Print_View.new
@@ -53,7 +52,7 @@ class Main
   #sort the words in the hash by occurance value
   word_counter.sort_hash
 
-  #1st ten words from the hash
+  #first ten words from the hash
   top_words = word_counter.top_ten
 
   #print list to console

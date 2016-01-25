@@ -1,4 +1,5 @@
 
+#A class containing a method to display the top ten word list to the console
 class Print_View
 
   # Prints the top ten words to the console

@@ -2,6 +2,13 @@
 # A class that reads in a plan text file
 class File_Reader
 
+  # Checks if the path to folder is preceded by a ./ and ended with a /.
+  # if not it converts the file path to the the ./.../ form.
+  # PARAMS:
+  # - dir: a string that provides the path to the directory
+  # RETURNS:
+  # - dir - the clean path to the directory in the form "./some-stuff/"
+
   def clean_path(dir)
     if !(/.*\/\z/.match dir)
       dir+="/"
