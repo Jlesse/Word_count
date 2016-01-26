@@ -49,6 +49,21 @@ describe "File_Reader" do
 
   file_reader = File_Reader.new
 
+  describe "#clean_path" do
+
+    it "Adds a slash to the end of input if / is not present" do
+     expect(file_reader.clean_path("./test")).to eq("./test/")
+    end
+
+    it "Prepends ./ to input if ./ not present" do
+      expect(file_reader.clean_path("test/")).to eq("./test/")
+    end
+
+    it "returns the unaltered string if it begins with ./ and ends with /" do
+      expect(file_reader.clean_path("./test/")).to eq("./test/")
+    end
+  end
+
   describe "#read_in_file" do
     it "outputs a string when good filePath is provided " do
       expect(file_reader.read_in_file("./test_books/galaxy1.txt")).to be_instance_of(String)
@@ -73,7 +88,7 @@ describe "Parser" do
 end
 
   describe "Print_View" do
-    describe "print_list" do
+    describe "#print_list" do
 
       print_view = Print_View.new
       it "prints the top ten words to the console" do

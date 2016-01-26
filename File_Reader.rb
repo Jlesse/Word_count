@@ -13,7 +13,7 @@ class File_Reader
     if !(/.*\/\z/.match dir)
       dir+="/"
     end
-    if (/\A\/.*/.match dir)
+    if !(/\A\.\/.*/.match dir)
       dir = "./" + dir
     end
     dir
