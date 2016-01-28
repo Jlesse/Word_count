@@ -9,7 +9,6 @@ require_relative 'Parser'
 # and gets the top ten entries in the hash and passes it of to the view to be
 # printed to the console.
 class Main
-  private
   #An obejct to read in a file path and parse it into a single string
   @file_reader = File_Reader.new
 
@@ -32,6 +31,7 @@ class Main
   # RETURNS
   # - the word counter, but the method is meant to be void and only insert and count words in the word_counter object's word_hash
   def self.process_files(dir_path)
+
     #clean the path of the directory (check if prepended by ./ and appended with /)
     directory = @file_reader.clean_path(dir_path)
 
@@ -51,20 +51,21 @@ class Main
       # parse the string into an array of words
       word_array = @parser.parse_text(file_string)
 
-      # count the word occurances adn store them in the word_counters @word_hash
+      # count the word occurances and store them in the word_counters @word_hash
       @word_counter.count_words(word_array)
 
     end
+
+    #sort the words in the hash by occurance value
+    @word_counter.sort_hash
+
+    #first ten words from the hash
+    top_words = @word_counter.top_ten
+
+    #print list to console
+    @viewer.print_list(top_words)
   end
 
   process_files(ARGV[0])
 
-  #sort the words in the hash by occurance value
-  @word_counter.sort_hash
-
-  #first ten words from the hash
-  top_words = @word_counter.top_ten
-
-  #print list to console
-  @viewer.print_list(top_words)
 end
