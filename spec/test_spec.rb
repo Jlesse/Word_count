@@ -72,7 +72,9 @@ describe "File_Reader" do
     it "raises an error when a bad file path is provided" do
       expect{file_reader.read_in_file("I-dont-exist.txt")}.to raise_error(SystemCallError)
     end
+
   end
+
 end
 
 describe "Parser" do
